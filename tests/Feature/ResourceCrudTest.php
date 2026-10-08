@@ -69,6 +69,7 @@ class ResourceCrudTest extends TestCase
             'patient_id' => $patient->id,
             'doctor_id' => $doctor->id,
             'appointment_date' => '2026-12-01',
+            'appointment_time' => '09:30',
             'status' => 'Scheduled',
         ]);
         $resp->assertRedirect('/appointments');
@@ -84,11 +85,13 @@ class ResourceCrudTest extends TestCase
             'patient_id' => $patient->id,
             'doctor_id' => $doctor->id,
             'appointment_date' => '2026-12-15',
+            'appointment_time' => '14:00',
             'status' => 'Completed',
         ]);
         $resp->assertRedirect('/appointments');
         $appointment->refresh();
         $this->assertSame('Completed', $appointment->status);
+        $this->assertSame('14:00', $appointment->appointment_time);
 
         // delete
         $resp = $this->delete("/appointments/$aid");
@@ -106,5 +109,36 @@ class ResourceCrudTest extends TestCase
     {
         $resp = $this->post('/appointments', []);
         $resp->assertSessionHasErrors(['patient_id', 'doctor_id', 'appointment_date', 'status']);
+    }
+
+    public function test_dashboard_renders_with_set_appointment_form()
+    {
+        $resp = $this->get('/dashboard');
+        $resp->assertOk();
+        $resp->assertSee('Set Appointment');
+        $resp->assertSee('/dashboard/set-appointment');
+    }
+
+    public function test_dashboard_can_set_appointment()
+    {
+        $patient = Patient::factory()->create();
+        $doctor = Doctor::first();
+
+        $resp = $this->post('/dashboard/set-appointment', [
+            'patient_id' => $patient->id,
+            'doctor_id' => $doctor->id,
+            'appointment_date' => '2026-12-01',
+            'appointment_time' => '10:00',
+            'status' => 'Scheduled',
+        ]);
+        $resp->assertRedirect('/dashboard');
+
+        $this->assertDatabaseHas('appointments', [
+            'patient_id' => $patient->id,
+            'doctor_id' => $doctor->id,
+            'appointment_date' => '2026-12-01',
+            'appointment_time' => '10:00',
+            'status' => 'Scheduled',
+        ]);
     }
 }

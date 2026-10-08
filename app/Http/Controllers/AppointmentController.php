@@ -42,6 +42,7 @@ class AppointmentController extends Controller
             'patient_id' => 'required|exists:patients,id',
             'doctor_id' => 'required|exists:doctors,id',
             'appointment_date' => 'required|date',
+            'appointment_time' => 'nullable',
             'status' => 'required'
         ]);
 
@@ -49,6 +50,7 @@ class AppointmentController extends Controller
             'patient_id' => $request->patient_id,
             'doctor_id' => $request->doctor_id,
             'appointment_date' => $request->appointment_date,
+            'appointment_time' => $request->appointment_time,
             'status' => $request->status
         ]);
 
@@ -85,6 +87,7 @@ class AppointmentController extends Controller
             'patient_id' => 'required|exists:patients,id',
             'doctor_id' => 'required|exists:doctors,id',
             'appointment_date' => 'required|date',
+            'appointment_time' => 'nullable',
             'status' => 'required'
         ]);
 
@@ -92,6 +95,7 @@ class AppointmentController extends Controller
             'patient_id' => $request->patient_id,
             'doctor_id' => $request->doctor_id,
             'appointment_date' => $request->appointment_date,
+            'appointment_time' => $request->appointment_time,
             'status' => $request->status
         ]);
 

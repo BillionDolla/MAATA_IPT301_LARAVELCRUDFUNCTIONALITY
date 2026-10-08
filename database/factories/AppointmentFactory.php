@@ -21,6 +21,7 @@ class AppointmentFactory extends Factory
             'patient_id' => \App\Models\Patient::inRandomOrder()->first()?->id ?? 1,
             'doctor_id' => \App\Models\Doctor::inRandomOrder()->first()?->id ?? 1,
             'appointment_date' => $this->faker->date(),
+            'appointment_time' => $this->faker->time('H:i:s'),
             'status' => $this->faker->randomElement([
                 'Scheduled',
                 'Completed',

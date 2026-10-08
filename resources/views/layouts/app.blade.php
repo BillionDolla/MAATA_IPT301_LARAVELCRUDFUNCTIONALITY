@@ -11,9 +11,9 @@
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <a href="{{ route('dashboard') }}">Dashboard</a>
+            <a class="nav-link" href="{{ route('appointments.index') }}">Appointments</a>
             <a class="nav-link" href="{{ route('doctors.index') }}">Doctors</a>
             <a class="nav-link" href="{{ route('patients.index') }}">Patients</a>
-            <a class="nav-link" href="{{ route('appointments.index') }}">Appointments</a>
         </nav>
     </div>
     
@@ -27,7 +27,7 @@
         
         <!-- Column 1: Brand/About -->
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <h5 class="text-uppercase fw-bold text-warning mb-4">Company Name</h5>
+          <h5 class="text-uppercase fw-bold text-warning mb-4">BIlionDolla Company</h5>
           <p>
             Building outstanding web applications with modern design systems. We focus on clean code, speed, and exceptional user experiences.
           </p>
@@ -54,8 +54,8 @@
         <!-- Column 4: Contact Info -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <h5 class="text-uppercase fw-bold mb-4">Contact</h5>
-          <p><i class="bi bi-house-door-fill me-3 text-secondary"></i> New York, NY 10012, US</p>
-          <p><i class="bi bi-envelope-fill me-3 text-secondary"></i> info@example.com</p>
+<p><i class="bi bi-house-door-fill me-3 text-secondary"></i> Philippines, Bohol, Macaas</p>
+            <p><i class="bi bi-envelope-fill me-3 text-secondary"></i> maatabillclipford@gmail.com</p>
           <p><i class="bi bi-telephone-fill me-3 text-secondary"></i> + 01 234 567 88</p>
           <p><i class="bi bi-printer-fill me-3 text-secondary"></i> + 01 234 567 89</p>
         </div>
@@ -67,7 +67,7 @@
     <div class="text-center p-3 border-top border-secondary">
       <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center">
         <span class="text-secondary small">
-          © 2026 Company Name. All rights reserved.
+          © 2026 BIlionDolla Company. All rights reserved.
         </span>
         <div class="mt-2 mt-sm-0">
           <a href="#" class="text-reset me-4"><i class="bi bi-facebook"></i></a>

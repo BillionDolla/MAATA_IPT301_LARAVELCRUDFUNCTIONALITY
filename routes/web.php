@@ -12,6 +12,7 @@ Route::get('/', function() {
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::post('/dashboard/set-appointment', [DashboardController::class, 'setAppointment'])->name('dashboard.setAppointment');
 
 Route::resource('patients', PatientController::class);
 Route::resource('doctors', DoctorController::class);

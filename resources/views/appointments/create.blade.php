@@ -50,6 +50,11 @@
             </div>
 
             <div class="mb-3">
+                <label for="appointment_time" class="form-label">Appointment Time</label>
+                <input type="time" class="form-control" name="appointment_time" value="{{ old('appointment_time') }}">
+            </div>
+
+            <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
                 <select name="status" class="form-control">
                     <option value="Scheduled" {{ old('status') == 'Scheduled' ? 'selected' : '' }}>Scheduled</option>

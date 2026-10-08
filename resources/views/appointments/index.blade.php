@@ -15,22 +15,24 @@
 @endif
 
 <table class="table table-striped table-bordered">
-    <thead class="table-dark">
+<thead class="table-dark">
         <tr>
             <th>Patient</th>
             <th>Doctor</th>
             <th>Appointment Date</th>
+            <th>Appointment Time</th>
             <th>Status</th>
             <th>Actions</th>
         </tr>
     </thead>
+
     <tbody>
         @forelse($appointments as $appointment)
         <tr>
             <td>{{ $appointment->patient->name ?? 'N/A' }}</td>
             <td>{{ $appointment->doctor->name ?? 'N/A' }}</td>
             <td>{{ $appointment->appointment_date }}</td>
-            <td>{{ $appointment->status }}</td>
+            <td>{{ $appointment->appointment_time ?? 'N/A' }}</td>
             <td>
                 <a href="{{ route('appointments.edit', $appointment->id) }}" class="btn btn-warning btn-sm">Edit</a>
 
